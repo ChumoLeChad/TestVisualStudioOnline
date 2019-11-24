@@ -1,0 +1,48 @@
+SiteAPE_plateforme_accueil:
+    path:    /{page}
+    defaults:  
+        _controller: SiteAPEPlateformeBundle:Annonce:index 
+        page: 1
+    requirements:
+        page:    \d*
+    
+SiteAPE_plateforme_detail:
+    path:    /annonce/{id}
+    defaults: { _controller: SiteAPEPlateformeBundle:Annonce:detail }
+
+SiteAPE_plateforme_ajouter:
+    path:    /ajouter
+    defaults: { _controller: SiteAPEPlateformeBundle:Annonce:ajouter }
+
+SiteAPE_plateforme_modifier:
+    path:    /modifier/{id}
+    defaults: { _controller: SiteAPEPlateformeBundle:Annonce:modifier }
+
+SiteAPE_plateforme_supprimer:
+    path:    /supprimer/{id}
+    defaults: { _controller: SiteAPEPlateformeBundle:Annonce:supprimer }
+
+SiteAPE_plateforme_annonceAlexnadre:
+    path:    /annonce/auteur/alexandre
+    defaults: { _controller: SiteAPEPlateformeBundle:Annonce:auteuralexandre }
+
+SiteAPE_plateforme_annoncePierre:
+    path:    /annonce/auteur/pierre
+    defaults: { _controller: SiteAPEPlateformeBundle:Annonce:auteurpierre }
+
+SiteAPE_plateforme_touteslesannonces:
+    path:    /annonce/auteur/tous
+    defaults: { _controller: SiteAPEPlateformeBundle:Annonce:touteslesannonces }
+
+SiteAPE_plateforme_auteuretmot:
+    path:    /annonce/auteur/alexandre/developpeur
+    defaults: { _controller: SiteAPEPlateformeBundle:Annonce:auteuretmot }
+
+SiteAPE_plateforme_listecategorie:
+    path:    /categorie
+    defaults: { _controller: SiteAPEPlateformeBundle:Annonce:categorie }
+
+SiteAPE_plateforme_categorie:
+    path:    /annonce/categorie/{id}
+    defaults: { _controller: SiteAPEPlateformeBundle:Annonce:categoriedetail }
+

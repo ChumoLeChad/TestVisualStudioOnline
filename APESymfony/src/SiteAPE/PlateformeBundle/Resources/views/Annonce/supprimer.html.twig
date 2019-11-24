@@ -1,0 +1,25 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+
+{% block title %}
+    Supprimer une Annonce - {{ parent() }}
+{% endblock %}
+
+{% block APEAnnonce_body %}
+
+    <h2>Supprimer une annonce</h2>
+
+    <p>
+        Etes-vous certain de vouloir supprimer l'annonce "{{ annonce.titre }}" ?
+    </p>
+
+    {# On met l'id de l'annonce dans la route de l'action du formulaire #}
+    <form action="{{ path('SiteAPE_plateforme_supprimer', {'id': annonce.id}) }}" method="post">
+        <a href="{{ path('SiteAPE_plateforme_detail', {'id': annonce.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour a l'annonce
+        </a>
+        <input type="submit" value="Supprimer" class="btn btn-danger" />
+        {{ form_rest(form) }}
+    </form>
+
+{% endblock %}

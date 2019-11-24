@@ -1,0 +1,15 @@
+{% extends "::layout.html.twig" %}
+{% block title %}
+    Annonce - {{ parent() }}
+{% endblock %}
+{% block body %}
+{# On défini un sous - titre commun a toutes les pages du bundle #}
+<h1>Annonces</h1>
+<hr>
+{# On défini un nouveau bloc, que les vues du bundle pourront remplir.
+Ce nouveau bloc sera donc personnalisé par les templates finaux. 
+On préfixe le nom du nouveau bloc afin d'avoir un nom unique pour notre bundle #}
+
+{% block APEAnnonce_body %}
+{% endblock %}
+{% endblock %}

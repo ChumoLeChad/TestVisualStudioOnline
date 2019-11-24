@@ -1,0 +1,32 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+    encoders:
+        SymfonyComponent\Security\Core\User\User: plaintext
+        SiteAPE\UserBundle\Entity\User: plaintext
+
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        main:
+            entity:
+                class:    SiteAPE\UserBundle\Entity\User
+                property: username
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main_login:
+            pattern: ^/login$
+            anonymous: true
+        main:
+            pattern: ^/
+            anonymous: false
+            provider: main
+            form_login:
+                login_path: login
+                check_path: login_check
+            logout:
+                path: logout
+                target: /plateforme

@@ -1,0 +1,20 @@
+SiteAPE_Evaluation_liste:
+    path:    /abonnes/liste
+    defaults: { _controller: SiteAPEEvaluationBundle:Abonne:index }
+
+SiteAPE_Evaluation_detail:
+    path:    /abonnes/detail/{id}
+    defaults: { _controller: SiteAPEEvaluationBundle:Abonne:detail }
+
+SiteAPE_Evaluation_Trombinoscope:
+    path:    /abonnes/trombinoscope
+    defaults: { _controller: SiteAPEEvaluationBundle:Abonne:letrombi }
+
+SiteAPE_Evaluation_supprimer:
+    path:    /abonnes/supprimer/{id}
+    defaults: { _controller: SiteAPEEvaluationBundle:Abonne:supprimer }
+
+SiteAPE_Evaluation_modifier:
+    path: /abonnes/modifier/{id}
+    defaults: { _controller: SiteAPEEvaluation:Abonne:modifier }
+

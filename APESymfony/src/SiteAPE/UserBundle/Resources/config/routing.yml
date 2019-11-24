@@ -1,0 +1,3 @@
+site_ape_user:
+    prefix:    /
+    defaults: { _controller: SiteAPEUserbundle:Security:login}

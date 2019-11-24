@@ -1,0 +1,16 @@
+{% block title %}
+{% endblock %}
+
+{% block APEAnnonce_body %}
+<ul class="nav nav-pills nav-stacked">
+    {% for annonce in listeAnnonces %}
+        <li>
+            <a href="{{ path('SiteAPE_plateforme_detail', {'id':annonce.id}) }}">
+                {{ annonce.titre }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+  
+{% endblock %}

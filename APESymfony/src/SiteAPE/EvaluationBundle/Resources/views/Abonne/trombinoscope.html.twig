@@ -1,0 +1,16 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+
+{% block title %}
+    Trombinoscope - {{ parent() }}
+{% endblock %}
+
+{% block APEAnnonce_body %}
+<h2>Trombinoscope</h2>
+    <div class="well">
+        {% for image in listeimage %}
+              <img src="{{ image.url }}" alt="{{ image.textealternatif }}" height="75" width="70">
+        {% else %}
+    <li>Aucune images</li>
+{% endfor %}
+
+{% endblock %}

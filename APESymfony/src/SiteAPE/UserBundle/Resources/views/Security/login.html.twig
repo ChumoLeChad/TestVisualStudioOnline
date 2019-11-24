@@ -1,0 +1,33 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+
+
+{% block body %}
+    {# S'il y a une erreur, on l'affiche dans un joli cadre #}
+    {% if error %}
+        <div class="alert alert-danger">{{ error.message }}</div>
+    {% endif %}
+    
+    <div class="well">
+    {# Le formulaire, avec URL de soumission vers la route long_check #}
+    <form action="{{ path('login_check') }}" method="post">
+        <div class="form-group">
+            <label for="username">Login :</label>
+                <div class="col-sm-10">
+            <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
+                </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Mot de passe :</label>
+                <div class="col-sm-10">
+            <input type="password" id="password" name="_password" class="form-control"/>
+                </div>
+        </div>
+
+        <br />
+        <div class="form-group">
+            <input type="submit" value="Connexion" class="btn btn-success" />
+        </div>
+    </form>
+    </div>
+{% endblock %}

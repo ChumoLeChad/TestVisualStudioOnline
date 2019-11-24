@@ -1,0 +1,24 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+
+{% block title %}
+    Abonnés - {{ parent() }}
+{% endblock %}
+
+{% block APEAnnonce_body %}
+<div class="well">
+    {% for abo in listeAbo %}
+        <li>
+            <a href="{{ path('SiteAPE_Evaluation_detail', {'id': abo.id}) }}">{{ abo.nom }}</a>
+             - {{ abo.prenom }} - {{ abo.email }}
+        </li>
+    
+    {% else %}
+        <li>Aucun abonnés</li>
+    {% endfor %}
+</div>
+
+<h5> Mes propres méthodes</h5>
+    <ul>
+        <li><a href="{{ path('SiteAPE_Evaluation_Trombinoscope') }}">Trombinoscope</a></li>
+    </ul>
+{% endblock %}

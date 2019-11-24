@@ -1,0 +1,4 @@
+services:
+#    site_ape_plateforme.example:
+#        class: SiteAPE\PlateformeBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,20 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+
+{% block title %}
+    Modifier une annonce - {{ parent() }}
+{% endblock %}
+
+{% block APEAnnonce_body %}
+    <h2>Modifier une annonce</h2>
+
+    {{ include("SiteAPEPlateformeBundle:Annonce:formulaire.html.twig") }}
+    <p>
+        Vous allez modifier une annonce déjà existante
+    </p>
+    <p>
+        <a href="{{ path('SiteAPE_plateforme_detail', {'id': annonce.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            retour à l'annonce
+        </a>
+    </p>
+{% endblock %}

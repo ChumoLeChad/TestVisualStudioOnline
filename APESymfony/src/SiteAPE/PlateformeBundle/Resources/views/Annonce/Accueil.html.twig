@@ -1,0 +1,23 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+{% block title %}
+    Accueil - {{ parent () }}
+{% endblock %}
+
+
+{% block APEAnnonce_body %}
+    <h2>Liste des annonces</h2>
+    <ul class="nav nav-pills nav-stacked">
+        {% for annonce in listeAnnonce %}
+            <li>
+                <a href="{{  path('SiteAPE_plateforme_detail', {'id': annonce.id}) }}">
+                    {{ annonce.titre }}
+                </a>
+                par {{ annonce.auteur }}
+                le {{ annonce.date|date('d/m/y') }}
+            </li>
+        {% else %}
+            <li>Aucune Annonce</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+

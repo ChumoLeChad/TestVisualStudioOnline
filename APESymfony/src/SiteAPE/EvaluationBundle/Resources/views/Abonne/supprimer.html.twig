@@ -1,0 +1,25 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+
+{% block title %}
+    Supprimer un Abonné - {{ parent() }}
+{% endblock %}
+
+{% block APEAnnonce_body %}
+
+    <h2>Supprimer un Abonné</h2>
+
+    <p>
+        Etes-vous certain de vouloir supprimer l'abonné "{{ abo.nom }}" ?
+    </p>
+
+    {# On met l'id de l'abonné dans la route de l'action du formulaire #}
+    <form action="{{ path('SiteAPE_Evaluation_supprimer', {'id': abo.id}) }}" method="post">
+        <a href="{{ path('SiteAPE_Evaluation_detail', {'id': abo.id}) }}" class="btn btn-default">
+            <i class="glyphicon glyphicon-chevron-left"></i>
+            Retour a l'abonné
+        </a>
+        <input type="submit" value="Supprimer" class="btn btn-danger" />
+        {{ form_rest(form) }}
+    </form>
+
+{% endblock %}

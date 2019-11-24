@@ -1,0 +1,16 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+
+{% block APEAnnonce_body %}
+<h2> Liste des categories</h2>
+   <ul>
+        {% for categorie in listeCategorie %}
+            <li>
+                <a href="{{ path('SiteAPE_plateforme_categorie', {'id': categorie.id}) }}">
+                   {{ categorie.nom }}
+                </a>
+            </li>
+        {% else %}
+            <li>Aucune categorie</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

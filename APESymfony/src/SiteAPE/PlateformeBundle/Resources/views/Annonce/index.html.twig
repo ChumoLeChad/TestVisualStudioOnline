@@ -1,0 +1,34 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+
+{% block title %}
+    Accueil - {{ parent() }}
+{% endblock %}
+
+{% block APEAnnonce_body %}
+
+    Bonjour {{ app.user.username }} (
+        {% for role in app.user.roles %}
+            {{ role }} 
+        {% endfor %}
+    ) <a href="{{ path('logout')}}">Deconnexion</a>
+    <ul>
+        {% for annonce in listeAnnonces %}
+            <li>
+                <a href="{{ path('SiteAPE_plateforme_detail', {'id': annonce.id}) }}">
+                   Annonce {{ annonce.id }} - {{ annonce.titre }}
+                </a>
+                par {{ annonce.auteur }},
+                le {{ annonce.date|date('d/m/y') }}
+            </li>
+        {% else %}
+            <li>Aucune annonce</li>
+        {% endfor %}
+    </ul>
+
+    <h5>Mes propres méthodes</h5>
+        <ul>
+                    {# Utilisation de la fonction {{ path }} pour faire des liens vers d'autres routes #}
+                   <li><a href="{{ path('SiteAPE_plateforme_touteslesannonces') }}">Liste de toutes les annonces</a></li>
+                   <li><a href="{{ path('SiteAPE_plateforme_auteuretmot') }}"> Liste des annonces de Alexandre et contenant le mot 'développeur'</a></li>
+         </ul>     
+{% endblock %}

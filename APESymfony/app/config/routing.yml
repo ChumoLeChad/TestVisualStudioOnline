@@ -1,0 +1,17 @@
+site_ape_evaluation:
+    resource: "@SiteAPEEvaluationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+site_ape_plateforme:
+    resource: "@SiteAPEPlateformeBundle/Resources/config/routing.yml"
+    prefix:   /plateforme
+
+login:
+    path: /login
+    defaults: { _controller: SiteAPEUserBundle:Security:login }
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout

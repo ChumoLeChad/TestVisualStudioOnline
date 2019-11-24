@@ -1,0 +1,37 @@
+<?php
+namespace SiteAPE\PlateformeBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+
+/**
+ *  @ORM\Entity
+ *  @ORM\Table(name="apeannoncecompetence")
+ */
+class AnnonceCompetence 
+{
+    /**
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\Column(name="niveau", type="string", length=255)
+     */
+    private $niveau;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SiteAPE\PlateformeBundle\Entity\Annonce")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $annonce;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="SiteAPE\PlateformeBundle\Entity\Competence")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $competence;
+}
+
+?>

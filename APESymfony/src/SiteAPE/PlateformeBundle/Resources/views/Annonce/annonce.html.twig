@@ -1,0 +1,60 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+
+{% block title %}
+    Detail d'une annonce - {{ parent() }}
+{% endblock %}
+
+{% block APEAnnonce_body %}
+    {# On vérifie qu'une image soit bien associée à l'annonce #}
+    {% if annonce.image is not null %}
+        <img src="{{ asset(annonce.image.chemin) }}" alt="{{ annonce.image.textealternatif }}" height="75" width="70">
+    {% endif %}
+    <h2>{{ annonce.titre }}</h2>
+    <i> Par {{ annonce.auteur }}, le {{ annonce.date | date ('d/m/y')}} </i>
+        <div class="well">
+         {{ annonce.contenu }}
+        </div>
+        <div>
+            <h3>Liste des candidatures</h3>
+            {% for candidatures in candidature  %}
+            <p>
+                <strong> {{ candidatures.candidat }}</strong>
+                : {{ candidatures.contenu }}
+            </p>
+            {% endfor %}
+
+            {% if not annonce.categories.empty %}
+			<p>
+            {# pour chaque categorie de la liste des catégories#}
+				Cette annonce est parue dans les categories suivantes :
+                {% for categorie in annonce.categories %}
+                {#On affiche son nom #}
+                {{ categorie.nom }}{% if not loop.last %}- {% endif %}
+            {% endfor %}
+			</p>
+        {% endif %}
+
+        {% if competence|length > 0 %}
+            <p>Cette annonce requiert les compétences suivantes :</p>
+            <ul>
+                {% for AnnonceCompetence in competence %}
+                    <li>{{ AnnonceCompetence.competence.libelle }} : niveau {{ AnnonceCompetence.niveau }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        </div>
+    <p>
+    <a href=" {{ path ('SiteAPE_plateforme_accueil') }}" class="btn btn-default">
+        <i class ="glyphicon glyphicon-chevron-left"></i>
+        Retour à la liste
+    </a>
+    <a href=" {{ path ('SiteAPE_plateforme_modifier', {'id': annonce.id }) }}" class="btn btn-default">
+        <i class ="glyphicon glyphicon-edit"></i>
+        Modifier l'annonce
+    </a>
+    <a href=" {{ path ('SiteAPE_plateforme_supprimer', {'id': annonce.id }) }}" class="btn btn-default">
+        <i class ="glyphicon glyphicon-trash"></i>
+        Supprimer l'annonce
+    </a>
+    </p>
+{% endblock %}

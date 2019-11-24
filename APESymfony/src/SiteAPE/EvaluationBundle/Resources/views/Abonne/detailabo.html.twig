@@ -1,0 +1,27 @@
+{% extends "SiteAPEPlateformeBundle::layout.html.twig" %}
+
+{% block title %}
+    Detail de l'abonné - {{ parent() }}
+{% endblock %}
+
+{% block APEAnnonce_body %}
+{# On vérifie qu'une image soit bien associée à l'abonné #}
+    {% if abo.image is not null %}
+        <img src="{{ abo.image.url }}" alt="{{ abo.image.textealternatif }}" height="75" width="70">
+    {% endif %}
+
+    <div class="well">
+        <strong> {{ abo.nom }} - {{ abo.prenom }}</strong>
+    </div>
+    <a href=" {{ path('SiteAPE_Evaluation_liste') }}" class="btn btn-default">
+        <i class="glyphicon glyphicon-chevron-left"></i>
+        Retour a la liste
+    </a>
+
+    <a href=" {{ path ('SiteAPE_Evaluation_supprimer', {'id': abo.id }) }}" class="btn btn-default">
+        <i class ="glyphicon glyphicon-trash"></i>
+        Supprimer l'abonné
+    </a>
+
+
+{% endblock %}
